@@ -9,7 +9,6 @@ public class ClosestToZero {
             if(close > tmp) {
                 close = tmp;
             }
-            if(close )
         }
     }
 }
