@@ -1,6 +1,7 @@
-.idea
-.xml
-HackerBank.iml
-out
-target
-    
+
+#IDEA
+.idea/
+out/
+target/
+*.iml
+*.xml
