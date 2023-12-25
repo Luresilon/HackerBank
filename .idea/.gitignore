@@ -11,6 +11,7 @@
 /target/
 
 # IDEA
+*.xml
 .idea/
 *.iml
 out/
