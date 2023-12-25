@@ -17,6 +17,7 @@ public class GroupAnagrams {
 //        System.out.println(groupAna);
         List<List<String>> result = new ArrayList<>(groupAna.values());
         result.sort(new Comparator<List<String>>() {
+
             @Override
             public int compare(List<String> a, List<String> b) {
                 return a.size() - b.size();
