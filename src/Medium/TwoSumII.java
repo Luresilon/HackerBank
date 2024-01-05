@@ -7,18 +7,19 @@ import java.util.Objects;
 public class TwoSumII {
 
     public static int[] twoSum(int[] numbers, int target) {
-        for(int i = 0; i < numbers.length; i++) {
-            int tmp = target - numbers[i];
-            if(Objects.equals(numbers, tmp)) {
-                return new int[]{i, List.of(numbers).indexOf(tmp)};
-            }
+        int i = 0;
+        int j = numbers.length - 1;
+
+        while(numbers[i] + numbers[j] != target) {
+            if(numbers[i] + numbers[j] >= target) j--;
+            else i++;
         }
-        return new int[]{0, 0};
+        return new int[] {i + 1, j + 1};
     }
 
     public static void main(String[] args) {
-        int[] numbers = {2, 7, 11, 15};
-        int target = 9;
+        int[] numbers = {-1, 0};
+        int target = -1;
         System.out.println(Arrays.toString(twoSum(numbers, target)));
     }
 }
