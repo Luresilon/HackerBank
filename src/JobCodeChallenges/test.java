@@ -1,22 +1,14 @@
 package JobCodeChallenges;
 
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class test {
-    public static void main(String[] args) {
-        try {
-            File myObj = new File("server_address.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException {
+        System.out.println(new File(".").getAbsoluteFile());
+        File file = new File("src/server_address.txt");
+        System.out.println(file.exists());
+        Scanner scan = new Scanner(file);
     }
 }

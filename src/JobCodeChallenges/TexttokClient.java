@@ -1,3 +1,5 @@
+package JobCodeChallenges;
+
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -72,6 +74,7 @@ public class TexttokClient {
         return null;
     }
 
+
     public int rateTox(int toxId, int rating) {
         try {
             // Construct and send the request
@@ -102,7 +105,7 @@ public class TexttokClient {
 
     public static void main(String[] args) {
         // Read server address and port from file
-        try (BufferedReader reader = new BufferedReader(new FileReader("server-address.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/server_address.txt"))) {
             String[] addressAndPort = reader.readLine().split(":");
             String serverAddress = addressAndPort[0];
             int serverPort = Integer.parseInt(addressAndPort[1]);
