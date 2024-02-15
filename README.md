@@ -1,1 +1,3 @@
-My repository for solving LeetCode and HackerRank challenges. As well as a sandbox for job challenges.
+# HackerBank
+
+A bank of LeetCode and HackerRank solutions I submitted. As well as some of the job assessments. 👍
