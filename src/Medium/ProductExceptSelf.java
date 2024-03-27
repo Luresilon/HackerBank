@@ -33,27 +33,6 @@ public class ProductExceptSelf {
         return res;
     }
 
-
-
-
-
-
-
-//    public static int[] func(int[] nums) {
-//        int n = nums.length;
-//        int[] res = new int[n];
-//
-//        for(int i = 0; i < n; i++) {
-//            int[] tmp = nums;
-//            tmp[i] = 1;
-//            int tmpValue = 1;
-//            Arrays.stream(nums).forEach(t);
-//        }
-//    }
-
-
-
-
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4};
         System.out.println(Arrays.toString(productExceptSelf(nums)));

@@ -58,9 +58,37 @@ public class CharFrequencySort {
     }
 
 
+
+
+
+    public static String func(String s) {
+        //Collect character frequency in a map {key: char -> value: frequency in string)
+        //Sort it
+        //Put it together with string builde
+
+        Map<Character, Integer> map = s.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.summingInt(c -> 1)));
+
+        LinkedHashMap<Character, Integer> sortedMap = map.entrySet().stream()
+                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (newValue, oldValue) -> oldValue, LinkedHashMap::new));
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(var entry: sortedMap.entrySet()) stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
+
+        return stringBuilder.toString();
+    }
+
     public static void main(String[] args) {
         String s = "tree";
 
-        System.out.println(frequencySort(s));
+        System.out.println(func(s));
     }
 }
