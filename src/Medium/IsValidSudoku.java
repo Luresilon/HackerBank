@@ -33,7 +33,8 @@ public class IsValidSudoku {
     public static boolean isValidSudoku(String[][] board) {
     HashSet<String> seen = new HashSet<>();
     System.out.println((float) 1/3);
-    System.out.println(1/3);    for (int i=0; i<9; ++i) {
+    System.out.println(1/3);
+    for (int i=0; i<9; ++i) {
         for (int j=0; j<9; ++j) {
             char number = board[i][j].charAt(0);
             if (number != '.')
@@ -47,6 +48,37 @@ public class IsValidSudoku {
 }
 
 
+public static boolean isValidSudoku2(final String[][] board) {
+        HashSet<String> seen = new HashSet<>();
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                char number = board[i][j].charAt(0);
+                if(number != '.') {
+                    if(!seen.add(number + " in row " + i) ||
+                            !seen.add(number + " in column " + j) ||
+                            !seen.add(number + "in square " + i/3 + "-" + j/3)) return false;
+                }
+            }
+        }
+        return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
         String[][] board = {{"5","3",".",".","7",".",".",".","."}
             ,{"6",".",".","1","9","5",".",".","."}
@@ -58,7 +90,7 @@ public class IsValidSudoku {
             ,{".",".",".","4","1","9",".",".","5"}
             ,{".",".",".",".","8",".",".","7","9"}};
 
-        boolean isValid = isValidSudoku(board);
+        boolean isValid = isValidSudoku2(board);
         System.out.println(isValid);
     }
 }
