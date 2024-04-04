@@ -12,30 +12,33 @@ public class CharFrequencySort {
 //    public static String frequencySort(String s) {
 //        Map<Character, Integer> map = s.chars()
 //                .mapToObj(c -> (char) c)
-//                .collect(
-//                        Collectors.groupingBy(
-//                                Function.identity(),
-//                                Collectors.summingInt(c -> 1)
-//                        )
-//                );
+//                .collect(Collectors.groupingBy(
+//                        Function.identity(),
+//                        Collectors.summingInt(c -> 1)));
 //
 //        LinkedHashMap<Character, Integer> sortedMap = map.entrySet().stream()
 //                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
 //                .collect(Collectors.toMap(
 //                        Map.Entry::getKey,
 //                        Map.Entry::getValue,
-//                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
-//
+//                        (oldValue, newValue) -> oldValue, LinkedHashMap::new
+//                ));
 //
 //        StringBuilder stringBuilder = new StringBuilder();
-//        for(var entry: sortedMap.entrySet()) {
-//            System.out.println(entry.getKey());
-//            stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
-//        }
+//
+//        for(var entry: sortedMap.entrySet()) stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
+//
 //        return stringBuilder.toString();
 //    }
 
-    public static String frequencySort(String s) {
+
+
+
+
+    public static String func(String s) {
+        //Collect character frequency in a map {key: char -> value: frequency in string)
+        //Sort it
+        //Put it together with string builder
         Map<Character, Integer> map = s.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(
@@ -51,37 +54,9 @@ public class CharFrequencySort {
                 ));
 
         StringBuilder stringBuilder = new StringBuilder();
-
-        for(var entry: sortedMap.entrySet()) stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
-
-        return stringBuilder.toString();
-    }
-
-
-
-
-
-    public static String func(String s) {
-        //Collect character frequency in a map {key: char -> value: frequency in string)
-        //Sort it
-        //Put it together with string builde
-
-        Map<Character, Integer> map = s.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.summingInt(c -> 1)));
-
-        LinkedHashMap<Character, Integer> sortedMap = map.entrySet().stream()
-                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (newValue, oldValue) -> oldValue, LinkedHashMap::new));
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for(var entry: sortedMap.entrySet()) stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
+        for(var entry: sortedMap.entrySet()) {
+            stringBuilder.append(String.valueOf(entry.getKey()).repeat(entry.getValue()));
+        }
 
         return stringBuilder.toString();
     }
