@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class BinarySearch {
 
     public static int binarySearch(int[] nums, int target) {
-        if(nums.length == 0 || target == null) return -1;
+//        if(nums.length == 0 || target == null) return -1;
         Arrays.sort(nums);
 
         int lo = 0;
