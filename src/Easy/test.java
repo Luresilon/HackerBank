@@ -1,18 +1,10 @@
 package Easy;
 
 public class test {
-    test() {
-        System.out.println("One, ");
-    }
-}
-
-class test2 extends test{
-    test2() {
-        System.out.println("Two");
-    }
-
     public static void main(String[] args) {
-        new test2();
+        char c = '1';
+        int a = Integer.parseInt(String.valueOf(c));
+        System.out.println(a);
     }
 }
 
