@@ -1,6 +1,7 @@
 package Easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class TwoSum {
@@ -17,11 +18,25 @@ public class TwoSum {
         }
         return new int[] {-1,-1};
     }
-    public static void main(String[] args) {
-        int[] nums = {-1,-2,-3,-4,-5};
-        int target = -8;
 
-        int[] res = isTwoSum(nums, target);
+    private static int[] optimisedIsTwoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> sums = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+            int tmp = target - nums[i];
+
+            if(sums.containsKey(nums[i])) {
+                return new int[]{sums.get(nums[i]), i};
+            }
+            sums.put(target - nums[i], i);
+        }
+        return new int[] {};
+    }
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+
+        int[] res = optimisedIsTwoSum(nums, target);
         System.out.println(Arrays.toString(res));
     }
 }
