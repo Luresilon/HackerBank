@@ -1,21 +1,19 @@
+import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class ValidAnagram {
     public static boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()) {return false;}
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
 
-        Map<Character, Long> charCountS = s.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        System.out.println(sArray);
+        System.out.println(tArray);
 
-        Map<Character, Long> charCountT = t.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        System.out.println(charCountS);
-
-        return charCountS.equals(charCountT);
+        return Arrays.equals(sArray, tArray);
     }
 
     public static void main(String[] args) {
