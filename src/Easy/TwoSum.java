@@ -32,11 +32,22 @@ public class TwoSum {
         }
         return new int[] {};
     }
+
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+            int tmp = target - nums[i];
+            if(!map.containsKey(tmp)) map.put(nums[i], i);
+            else return new int[] {i, map.get(tmp)};
+        }
+        return new int[] {0, 0};
+    }
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        int[] res = optimisedIsTwoSum(nums, target);
+        int[] res = twoSum(nums, target);
         System.out.println(Arrays.toString(res));
     }
 }
